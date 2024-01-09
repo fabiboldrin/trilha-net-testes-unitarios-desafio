@@ -44,11 +44,14 @@ public class ValidacoesListaTests
         var numeroParaProcurar = 10;
 
         // Act
+        var resultado = _validacoes.ListaContemDeterminadoNumero(lista, numeroParaProcurar);   //você quer saber a mesma coisa de cima, se esse númeroe está ou não na lista;
 
         // Assert
+        Assert.False(resultado);   //se não tiver, passamos o resultado.
     }
 
     //TODO: Corrigir a anotação [Fact]
+    [Fact]
     public void DeveMultiplicarOsElementosDaListaPor2()
     {
         //TODO: Implementar método de teste
@@ -56,10 +59,12 @@ public class ValidacoesListaTests
         // Arrange
         var lista = new List<int> { 5, 7, 8, 9 };
         var resultadoEsperado = new List<int> { 10, 14, 16, 18 };
-        
+
         // Act
+        var resultado = _validacoes.MultiplicarNumerosLista(lista, 2); //o dois é o número pelo qual quero multiplicar. 
 
         // Assert
+        Assert.Equal(resultadoEsperado, resultado); //queremos que eles sejam iguais
     }
 
     [Fact]
@@ -71,11 +76,12 @@ public class ValidacoesListaTests
         var lista = new List<int> { 5, -1, -8, 9 };
 
         // Act
+        var resultado = _validacoes.RetornarMaiorNumeroLista(lista);
 
         // Assert
         //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(9, 9);
-    }
+        Assert.Equal(9, resultado); //vai comparar o numero 9 (resultado esperado) com o nosso resultado.
+    } 
 
     [Fact]
     public void DeveRetornarOitoNegativoComoMenorNumeroDaLista()
@@ -90,6 +96,6 @@ public class ValidacoesListaTests
 
         // Assert
         //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(-8, -8);
+        Assert.Equal(-8, resultado); //mesma coisa de cima. 
     }
 }
